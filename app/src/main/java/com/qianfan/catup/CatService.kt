@@ -2,6 +2,8 @@ package com.qianfan.catup
 
 import android.accessibilityservice.AccessibilityService
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
@@ -14,6 +16,8 @@ class CatService : AccessibilityService() {
 
     private var mLastStateTime: Long = 0
     private var mHasCat: Boolean = false
+    private var uiHandler: Handler = Handler(Looper.getMainLooper())
+
     override fun onInterrupt() {
         Log.d(TAG, "onInterrupt")
     }
@@ -28,8 +32,8 @@ class CatService : AccessibilityService() {
                     val currentTime = System.currentTimeMillis()
                     if (currentTime - mLastStateTime > 2 * 1000) {
                         mLastStateTime = currentTime
-                        Log.d(TAG, "开始撸猫")
-//                        autoPerform(event?.source)
+                        Log.d(TAG, "开始做任务")
+                        autoPerform(event?.source)
                     }
                 }
             }
@@ -41,7 +45,7 @@ class CatService : AccessibilityService() {
         if (rootNode != null) {
             val nodeWebView = findWebViewNode(rootNode)
             if (nodeWebView != null) {
-                printDes(nodeWebView)
+                performSth(nodeWebView)
             }
         }
     }
@@ -68,7 +72,8 @@ class CatService : AccessibilityService() {
             }
         } else {
             if (rootNode.text != null) {
-                if (rootNode.text.toString() == "我的猫，点击撸猫") {
+                Log.d(TAG,"text-->"+rootNode.text.toString())
+                if (rootNode.text.toString() == "累计任务奖励") {
                     mHasCat = true
                 }
             }
@@ -76,32 +81,33 @@ class CatService : AccessibilityService() {
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    private fun printDes(rootNode: AccessibilityNodeInfo) {
+    private fun performSth(rootNode: AccessibilityNodeInfo) {
         if (rootNode.childCount > 0) {
             for (i in 0 until rootNode.childCount) {
                 if (rootNode.getChild(i) != null) {
-                    printDes(rootNode.getChild(i))
+                    performSth(rootNode.getChild(i))
                 }
             }
         } else {
             if (rootNode.text != null) {
-                Log.d(TAG, rootNode.text.toString() + " " + rootNode.viewIdResourceName)
-                if (rootNode.viewIdResourceName == "wall-warper") {
-                    Log.d(TAG, "wall childCount-->" + rootNode.childCount)
-                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-                }
+//                Log.d(TAG, rootNode.text.toString() + " " + rootNode.viewIdResourceName)
+//                if (rootNode.viewIdResourceName == "wall-warper") {
+//                    Log.d(TAG, "wall childCount-->" + rootNode.childCount)
+//                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+//                }
 //                if (rootNode.text.toString() == "我的猫，点击撸猫") {
 //                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
 //                }
-//                if (rootNode.text.toString() == "去浏览") {
-//                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-//                    Handler().postDelayed(Runnable {
+                if (rootNode.text.toString() == "去浏览") {
+                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+//                    uiHandler.postDelayed(Runnable {
 //                        performGlobalAction(GESTURE_SWIPE_DOWN)
 //                    }, 2000)
-//                    Handler().postDelayed(Runnable {
-//                        performGlobalAction(GLOBAL_ACTION_BACK)
-//                    }, 20 * 1000)
-//                }
+                    uiHandler.postDelayed(Runnable {
+                        performGlobalAction(GLOBAL_ACTION_BACK)
+                    }, 25 * 1000)
+                    return
+                }
             }
         }
     }
