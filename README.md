@@ -3,14 +3,15 @@
 
 [语雀版文档](https://www.yuque.com/docs/share/3d53aef3-1209-4b5a-beb5-aefccc32c14a)
 
-app下载地址
+### 下载地址
 https://wws.lanzous.com/iFTtyhmwrxg
 密码:b3zu
 
+### 版本日志
 v1.0 alpha
 支持自动刷【去浏览】任务
 
-todo
+### todo
  - 支持自定义识别关键词
  - 支持自定义浏览时长
 
