@@ -14,4 +14,8 @@ v1.0 alpha
 3、打开开启猫猫活动
 ![image.png](https://i.loli.net/2020/10/22/q9Nj5Mh4KnzGto7.png)
 
-4、切换到淘宝app，此时会自动识【去浏览】关键词，自动刷浏览
+4、切换到淘宝app，此时会自动识别【去浏览】关键词，自动刷浏览
+
+apk下载地址：
+https://wws.lanzous.com/iFTtyhmwrxg
+密码:b3zu
