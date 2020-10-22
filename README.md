@@ -1,5 +1,9 @@
 # CatUp
 
+app下载地址
+https://wws.lanzous.com/iFTtyhmwrxg
+密码:b3zu
+
 v1.0 alpha
 支持自动刷【去浏览】任务
 
@@ -16,6 +20,4 @@ v1.0 alpha
 
 4、切换到淘宝app，此时会自动识别【去浏览】关键词，自动刷浏览
 
-apk下载地址：
-https://wws.lanzous.com/iFTtyhmwrxg
-密码:b3zu
+
