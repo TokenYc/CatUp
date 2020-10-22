@@ -1,5 +1,8 @@
 # CatUp
 
+
+[语雀版文档](https://www.yuque.com/docs/share/3d53aef3-1209-4b5a-beb5-aefccc32c14a)
+
 app下载地址
 https://wws.lanzous.com/iFTtyhmwrxg
 密码:b3zu
