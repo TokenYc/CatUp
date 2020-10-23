@@ -4,12 +4,21 @@
 [语雀版文档](https://www.yuque.com/docs/share/3d53aef3-1209-4b5a-beb5-aefccc32c14a)
 
 ### 下载地址
+- v1.0 alpha 
 https://wws.lanzous.com/iFTtyhmwrxg
 密码:b3zu
+- v1.0 beta
+https://wws.lanzous.com/ie2G9ho4i5i
+密码:fbt8
 
 ### 版本日志
 v1.0 alpha
-支持自动刷【去浏览】任务
+- 支持自动刷【去浏览】任务
+<br>
+v1.0 beta
+- 经过2-3人实际使用，未发现bug
+- 支持设置点击的关键词
+- 支持设置页面浏览时长
 
 ### todo
  - 支持自定义识别关键词
