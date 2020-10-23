@@ -15,6 +15,7 @@ https://wws.lanzous.com/ie2G9ho4i5i
 v1.0 alpha
 - 支持自动刷【去浏览】任务
 <br>
+
 v1.0 beta
 - 经过2-3人实际使用，未发现bug
 - 支持设置点击的关键词
