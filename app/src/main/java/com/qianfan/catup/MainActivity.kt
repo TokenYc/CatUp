@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun updateKeyword() {
-        tv_keyword.text = "当前检索关键词：" + Params.keyword
+        tv_keyword.text = "当前点击关键词：" + Params.keyword
     }
 
     @SuppressLint("SetTextI18n")
