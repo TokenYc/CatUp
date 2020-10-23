@@ -9,6 +9,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.annotation.RequiresApi
+import androidx.core.os.postDelayed
 
 class CatService : AccessibilityService() {
 
@@ -72,7 +73,6 @@ class CatService : AccessibilityService() {
             }
         } else {
             if (rootNode.text != null) {
-                Log.d(TAG,"text-->"+rootNode.text.toString())
                 if (rootNode.text.toString() == "累计任务奖励") {
                     mHasCat = true
                 }
@@ -90,7 +90,8 @@ class CatService : AccessibilityService() {
             }
         } else {
             if (rootNode.text != null) {
-//                Log.d(TAG, rootNode.text.toString() + " " + rootNode.viewIdResourceName)
+
+                Log.d(TAG, rootNode.text.toString() + " " + rootNode.viewIdResourceName)
 //                if (rootNode.viewIdResourceName == "wall-warper") {
 //                    Log.d(TAG, "wall childCount-->" + rootNode.childCount)
 //                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
@@ -98,14 +99,15 @@ class CatService : AccessibilityService() {
 //                if (rootNode.text.toString() == "我的猫，点击撸猫") {
 //                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
 //                }
-                if (rootNode.text.toString() == "去浏览") {
+                if (rootNode.text.toString().contains(Params.keyword)) {
+                    Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
                     rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
 //                    uiHandler.postDelayed(Runnable {
 //                        performGlobalAction(GESTURE_SWIPE_DOWN)
 //                    }, 2000)
                     uiHandler.postDelayed(Runnable {
                         performGlobalAction(GLOBAL_ACTION_BACK)
-                    }, 25 * 1000)
+                    }, Params.viewTime * 1000)
                     return
                 }
             }
