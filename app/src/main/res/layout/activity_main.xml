@@ -14,6 +14,26 @@
         android:layout_height="wrap_content"
         android:text="开启服务" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_click_cat_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="进入点猫模式" />
+
+        <Button
+            android:id="@+id/btn_view_page_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="进入刷浏览模式" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_keyword"
@@ -21,8 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

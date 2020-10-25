@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         updateKeyword()
         updateViewTime()
+        btn_click_cat_mode.setOnClickListener {
+            Params.mode = Params.Mode.CLICK_CAT
+        }
+        btn_view_page_mode.setOnClickListener {
+            Params.mode = Params.Mode.VIEW_PAGE
+        }
         btn_open_permission.setOnClickListener {
             if (!isAccessibilitySettingsOn(this, CatService::class.java)) {
                 startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))

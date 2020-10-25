@@ -10,6 +10,7 @@ import android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.annotation.RequiresApi
 import androidx.core.os.postDelayed
+import java.util.concurrent.Executors
 
 class CatService : AccessibilityService() {
 
@@ -73,8 +74,17 @@ class CatService : AccessibilityService() {
             }
         } else {
             if (rootNode.text != null) {
-                if (rootNode.text.toString() == "累计任务奖励") {
-                    mHasCat = true
+                when (Params.mode) {
+                    Params.Mode.CLICK_CAT -> {
+                        if (rootNode.text.toString() == "我的猫，点击撸猫") {
+                            mHasCat = true
+                        }
+                    }
+                    Params.Mode.VIEW_PAGE -> {
+                        if (rootNode.text.toString() == "累计任务奖励") {
+                            mHasCat = true
+                        }
+                    }
                 }
             }
         }
@@ -89,27 +99,37 @@ class CatService : AccessibilityService() {
                 }
             }
         } else {
+            var isFind = false
             if (rootNode.text != null) {
+                when (Params.mode) {
+                    Params.Mode.CLICK_CAT -> {
+                        if (rootNode.text.toString().contains("我的猫，点击撸猫")) {
+                            isFind = true
+                            for (i in 0 until 500) {
+                                uiHandler.postDelayed(Runnable {
+                                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+                                }, (i * 200).toLong())
+                            }
+                        }
 
-                Log.d(TAG, rootNode.text.toString() + " " + rootNode.viewIdResourceName)
-//                if (rootNode.viewIdResourceName == "wall-warper") {
-//                    Log.d(TAG, "wall childCount-->" + rootNode.childCount)
-//                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-//                }
-//                if (rootNode.text.toString() == "我的猫，点击撸猫") {
-//                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-//                }
-                if (rootNode.text.toString().contains(Params.keyword)) {
-                    Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
-                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-//                    uiHandler.postDelayed(Runnable {
-//                        performGlobalAction(GESTURE_SWIPE_DOWN)
-//                    }, 2000)
-                    uiHandler.postDelayed(Runnable {
-                        performGlobalAction(GLOBAL_ACTION_BACK)
-                    }, Params.viewTime * 1000)
-                    return
+                    }
+                    Params.Mode.VIEW_PAGE -> {
+                        if (rootNode.text.toString().contains(Params.keyword)) {
+                            isFind = true
+
+                            Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
+
+                            rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+
+                            uiHandler.postDelayed(Runnable {
+                                performGlobalAction(GLOBAL_ACTION_BACK)
+                            }, Params.viewTime * 1000)
+                        }
+                    }
                 }
+            }
+            if (isFind) {
+                return
             }
         }
     }
