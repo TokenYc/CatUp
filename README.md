@@ -10,6 +10,9 @@ https://wws.lanzous.com/iFTtyhmwrxg
 - v1.0 beta
 https://wws.lanzous.com/ie2G9ho4i5i
 密码:fbt8
+- v1.0 
+https://wws.lanzous.com/itNVehs2ddi
+密码:5w47
 
 ### 版本日志
 v1.0 alpha
@@ -20,17 +23,25 @@ v1.0 beta
 - 经过2-3人实际使用，未发现bug
 - 支持设置点击的关键词
 - 支持设置页面浏览时长
+<br>
 
-### todo
- - 支持自动点击猫猫
+v1.0 
+- 支持点猫模式
 
-### 使用方法
+### 功能
+- 支持自动点猫。找到页面中的猫，自动点击，点击次数为500次，现在活动上限就是500次。
+- 支持自动刷页面浏览，原理是找到关键词，触发点击事件，然后在浏览一段时间后，自动触发返回事件，这样循环。
+
+
+
+### 刷浏览使用方法
+
 1、淘宝打开猫猫活动页，并且打开【领喵币】中心
 如图：
 <br>
 ![微信图片_20201022092121.png](https://i.loli.net/2020/10/23/cFSaMtyDh56zlOm.png)
 
-2、打开CatUp，点击开启权限
+2、打开CatUp，点击开启服务
 <br>
 ![68747470733a2f2f692e6c6f6c692e6e65742f323032302f31302f32322f65696446506c6a4a6d6855706331452e706e67_看图王_看图王.png](https://i.loli.net/2020/10/23/1jYwhk8zaqyrmS4.png)
 
@@ -39,6 +50,15 @@ v1.0 beta
 ![q9Nj5Mh4KnzGto7](https://i.loli.net/2020/10/23/Ld4WzlZDK6UVEtP.jpg)
 
 4、切换到淘宝app，此时会自动识别【去浏览】关键词，自动刷浏览
+
+### 点猫使用方法
+1、淘宝打开猫猫活动页，如图
+<br>
+![device-2020-10-27-141036.png](https://i.loli.net/2020/10/27/XrqFYoTROc2bzxg.png)
+
+2、打开CatUp，点击点猫模式
+3、点击开启服务，手动打开服务
+4、切换到淘宝app。此时会自动点击猫猫500次。
 
 ### 自定义
 #### 关键词
