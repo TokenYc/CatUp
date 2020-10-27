@@ -17,21 +17,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="当前模式:刷浏览模式" />
 
         <Button
             android:id="@+id/btn_click_cat_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="进入点猫模式" />
+            android:text="点猫模式" />
 
         <Button
             android:id="@+id/btn_view_page_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="进入刷浏览模式" />
+            android:text="刷浏览模式" />
     </LinearLayout>
 
 
