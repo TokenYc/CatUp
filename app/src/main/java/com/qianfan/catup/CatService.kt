@@ -90,6 +90,8 @@ class CatService : AccessibilityService() {
         }
     }
 
+    var isViewingPage = false
+
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     private fun performSth(rootNode: AccessibilityNodeInfo) {
         if (rootNode.childCount > 0) {
@@ -114,16 +116,19 @@ class CatService : AccessibilityService() {
 
                     }
                     Params.Mode.VIEW_PAGE -> {
-                        if (rootNode.text.toString().contains(Params.keyword)) {
-                            isFind = true
+                        if (!isViewingPage) {
+                            if (rootNode.text.toString().contains(Params.keyword)) {
+                                isFind = true
+                                isViewingPage = true
+                                Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
 
-                            Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
+                                rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
 
-                            rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-
-                            uiHandler.postDelayed(Runnable {
-                                performGlobalAction(GLOBAL_ACTION_BACK)
-                            }, Params.viewTime * 1000)
+                                uiHandler.postDelayed(Runnable {
+                                    isViewingPage = false
+                                    performGlobalAction(GLOBAL_ACTION_BACK)
+                                }, Params.viewTime * 1000)
+                            }
                         }
                     }
                 }
