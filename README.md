@@ -10,7 +10,7 @@ https://wws.lanzous.com/iFTtyhmwrxg
 - v1.0 beta
 https://wws.lanzous.com/ie2G9ho4i5i
 密码:fbt8
-- v1.0（最新） 
+- v1.0
 https://wws.lanzous.com/itNVehs2ddi
 密码:5w47
 - v1.0.1
