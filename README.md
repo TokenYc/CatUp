@@ -13,6 +13,9 @@ https://wws.lanzous.com/ie2G9ho4i5i
 - v1.0（最新） 
 https://wws.lanzous.com/itNVehs2ddi
 密码:5w47
+- v1.0.1
+https://wws.lanzous.com/iPHnChu37mj
+密码:a5q3
 
 ### 版本日志
 v1.0 alpha
@@ -26,6 +29,9 @@ v1.0 beta
 
 v1.0 
 - 支持点猫模式
+
+v1.0.1
+- 修复页面中存在多个关键词时，同时执行跳转的问题
 
 ### 功能
 - 支持自动刷页面浏览，原理是找到关键词，触发点击事件，然后在浏览一段时间后，自动触发返回事件，这样循环。
