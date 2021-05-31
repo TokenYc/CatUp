@@ -20,14 +20,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         updateKeyword()
         updateViewTime()
-        btn_click_cat_mode.setOnClickListener {
-            tv_mode.text = "当前模式：点猫模式"
-            Params.mode = Params.Mode.CLICK_CAT
-        }
-        btn_view_page_mode.setOnClickListener {
-            tv_mode.text = "当前模式：刷浏览模式"
-            Params.mode = Params.Mode.VIEW_PAGE
-        }
         btn_open_permission.setOnClickListener {
             if (!isAccessibilitySettingsOn(this, CatService::class.java)) {
                 startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))

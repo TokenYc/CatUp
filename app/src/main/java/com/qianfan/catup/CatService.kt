@@ -26,19 +26,20 @@ class CatService : AccessibilityService() {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
+        Log.d(TAG, "onAccessibilityEvent:" + event?.toString())
 
         if (event?.eventType == TYPE_WINDOW_STATE_CHANGED) {
-            if (event?.source != null) {
-                if (isCatPage(event?.source)) {
-                    mHasCat = false
-                    val currentTime = System.currentTimeMillis()
-                    if (currentTime - mLastStateTime > 2 * 1000) {
-                        mLastStateTime = currentTime
-                        Log.d(TAG, "开始做任务")
-                        autoPerform(event?.source)
-                    }
-                }
-            }
+//            if (event?.source != null) {
+//                if (isCatPage(event?.source)) {
+//                    mHasCat = false
+//                    val currentTime = System.currentTimeMillis()
+//                    if (currentTime - mLastStateTime > 2 * 1000) {
+//                        mLastStateTime = currentTime
+//                        Log.d(TAG, "开始做任务")
+//                        autoPerform(event?.source)
+//                    }
+//                }
+//            }
         }
     }
 
@@ -74,17 +75,8 @@ class CatService : AccessibilityService() {
             }
         } else {
             if (rootNode.text != null) {
-                when (Params.mode) {
-                    Params.Mode.CLICK_CAT -> {
-                        if (rootNode.text.toString() == "我的猫，点击撸猫") {
-                            mHasCat = true
-                        }
-                    }
-                    Params.Mode.VIEW_PAGE -> {
-                        if (rootNode.text.toString() == "累计任务奖励") {
-                            mHasCat = true
-                        }
-                    }
+                if (rootNode.text.toString() == "累计任务奖励") {
+                    mHasCat = true
                 }
             }
         }
@@ -103,33 +95,18 @@ class CatService : AccessibilityService() {
         } else {
             var isFind = false
             if (rootNode.text != null) {
-                when (Params.mode) {
-                    Params.Mode.CLICK_CAT -> {
-                        if (rootNode.text.toString().contains("我的猫，点击撸猫")) {
-                            isFind = true
-                            for (i in 0 until 500) {
-                                uiHandler.postDelayed(Runnable {
-                                    rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-                                }, (i * 200).toLong())
-                            }
-                        }
+                if (!isViewingPage) {
+                    if (rootNode.text.toString().contains(Params.keyword)) {
+                        isFind = true
+                        isViewingPage = true
+                        Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
 
-                    }
-                    Params.Mode.VIEW_PAGE -> {
-                        if (!isViewingPage) {
-                            if (rootNode.text.toString().contains(Params.keyword)) {
-                                isFind = true
-                                isViewingPage = true
-                                Log.d(TAG, "执行点击事件 keyword:" + Params.keyword)
+                        rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
 
-                                rootNode.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-
-                                uiHandler.postDelayed(Runnable {
-                                    isViewingPage = false
-                                    performGlobalAction(GLOBAL_ACTION_BACK)
-                                }, Params.viewTime * 1000)
-                            }
-                        }
+                        uiHandler.postDelayed(Runnable {
+                            isViewingPage = false
+                            performGlobalAction(GLOBAL_ACTION_BACK)
+                        }, Params.viewTime * 1000)
                     }
                 }
             }
