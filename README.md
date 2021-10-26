@@ -4,47 +4,21 @@
 [语雀版文档](https://www.yuque.com/docs/share/3d53aef3-1209-4b5a-beb5-aefccc32c14a)
 
 ### 下载地址
-- v1.0 alpha 
-https://wws.lanzous.com/iFTtyhmwrxg
-密码:b3zu
-- v1.0 beta
-https://wws.lanzous.com/ie2G9ho4i5i
-密码:fbt8
-- v1.0
-https://wws.lanzous.com/itNVehs2ddi
-密码:5w47
-- v1.0.1
-https://wws.lanzous.com/iPHnChu37mj
-密码:a5q3
+- 2021_11_11_v1.0
+https://wwe.lanzoui.com/icVh1vsyycj
+密码:1bkf
 
 ### 版本日志
-v1.0 alpha
-- 支持自动刷【去浏览】任务
-<br>
-
-v1.0 beta
-- 支持设置点击的关键词
-- 支持设置页面浏览时长
-<br>
-
-v1.0 
-- 支持点猫模式
-
-v1.0.1
-- 修复页面中存在多个关键词时，同时执行跳转的问题
-
-### 功能
-- 支持自动刷页面浏览，原理是找到关键词，触发点击事件，然后在浏览一段时间后，自动触发返回事件，这样循环。
-- 支持自动点猫。找到页面中的猫，自动点击，点击次数为500次，现在活动上限就是500次。
-
+2021_11_11_v1.0
+- 支持2021淘宝双11活动自动刷浏览
 
 
 ### 刷浏览使用方法
 
-1、淘宝打开猫猫活动页，并且打开【领喵币】中心
+1、淘宝打开双11活动页面，并且点击赚糖领红包
 如图：
 <br>
-![微信图片_20201022092121.png](https://i.loli.net/2020/10/23/cFSaMtyDh56zlOm.png)
+![微信图片_20201022092121.png](https://cdn.nlark.com/yuque/0/2021/jpeg/1355797/1635241084313-fc84e96f-ab50-4d61-9122-3b116ab4aadb.jpeg)
 
 2、打开CatUp，点击开启服务
 <br>
@@ -56,16 +30,6 @@ v1.0.1
 
 4、切换到淘宝app，此时会自动识别【去浏览】关键词，自动刷浏览
 
-### 点猫使用方法
-1、淘宝打开猫猫活动页，如图
-<br>
-![device-2020-10-27-141036.png](https://i.loli.net/2020/10/27/XrqFYoTROc2bzxg.png)
-<br>
-2、打开CatUp，点击点猫模式
-<br>
-3、点击开启服务，手动打开服务
-<br>
-4、切换到淘宝app。此时会自动点击猫猫500次。
 
 ### 自动浏览自定义
 #### 关键词
